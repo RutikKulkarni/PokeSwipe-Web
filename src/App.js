@@ -9,6 +9,7 @@ import "./App.css";
 function App() {
   const [likedPokemons, setLikedPokemons] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [fromLikedPage, setFromLikedPage] = useState(false);
 
   useEffect(() => {
     const prefersDarkScheme = window.matchMedia(
@@ -47,11 +48,21 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route
             path="/swipe"
-            element={<Card addLikedPokemon={addLikedPokemon} />}
+            element={
+              <Card
+                addLikedPokemon={addLikedPokemon}
+                fromLikedPage={fromLikedPage}
+              />
+            }
           />
           <Route
             path="/liked"
-            element={<LikedPokemons likedPokemons={likedPokemons} />}
+            element={
+              <LikedPokemons
+                likedPokemons={likedPokemons}
+                setFromLikedPage={setFromLikedPage}
+              />
+            }
           />
         </Routes>
       </Router>

@@ -2,19 +2,25 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { CiHeart } from "react-icons/ci";
-// import heartIcon from "../../assets/heart-icon.png";
 import logo from "../../assets/logo.png";
 import styles from "./Card.module.css";
 
-const Card = ({ addLikedPokemon }) => {
+const Card = ({ addLikedPokemon, fromLikedPage }) => {
   const [pokemon, setPokemon] = useState(null);
   const [shownPokemonIds, setShownPokemonIds] = useState([]);
   const [likedCount, setLikedCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [showLikedLink, setShowLikedLink] = useState(false);
 
   useEffect(() => {
     fetchRandomPokemon();
   }, []);
+
+  useEffect(() => {
+    if (fromLikedPage) {
+      setShowLikedLink(true);
+    }
+  }, [fromLikedPage]);
 
   const fetchRandomPokemon = async () => {
     setLoading(true);
@@ -47,6 +53,7 @@ const Card = ({ addLikedPokemon }) => {
   const handleLike = () => {
     addLikedPokemon(pokemon);
     setLikedCount(likedCount + 1);
+    setShowLikedLink(true);
     fetchRandomPokemon();
   };
 
@@ -66,8 +73,7 @@ const Card = ({ addLikedPokemon }) => {
       ) : (
         <div className={styles.cardContainer}>
           <div className={styles.card}>
-            <CiHeart className={styles.heartIcon} />
-            {/* <img src={heartIcon} className={styles.heartIcon}/> */}
+            <CiHeart className={styles.heartIcon} onClick={handleLike} />
             <div className={styles.imageContainer}>
               <img src={pokemon.image} alt={pokemon.name} />
             </div>
@@ -97,7 +103,7 @@ const Card = ({ addLikedPokemon }) => {
           </div>
         </div>
       )}
-      {likedCount > 0 && (
+      {showLikedLink && (
         <div className={styles.likedLinkContainer}>
           <Link to="/liked" className={styles.likedLink}>
             Go to Liked Pokémon

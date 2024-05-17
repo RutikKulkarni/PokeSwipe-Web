@@ -42,6 +42,11 @@
   cursor: pointer;
   font-size: 24px;
   color: #ce2db1;
+  transition: color 0.3s ease;
+}
+
+.heartIcon:hover {
+  color: #ff0080;
 }
 
 .imageContainer {
@@ -114,29 +119,19 @@
 .likeButton {
   background-color: var(--button-background);
   color: var(--text-color);
-  border-color: #414141;
+  border-color: var(--text-color);
 
   font-family: "Comic Neue";
   font-size: 16px;
-}
-
-.likeButton:hover {
-  background-color: white;
-  color: var(--button-background);
-  border-color: #383838;
 }
 
 .dislikeButton {
   background-color: var(--button-dislike-background-color);
   color: var(--text-color);
+  border-color: var(--text-color);
 
   font-family: "Comic Neue";
   font-size: 16px;
-}
-
-.dislikeButton:hover {
-  background-color: white;
-  color: var(--button-dislike-background-color);
 }
 
 .likedLinkContainer {
@@ -146,17 +141,11 @@
 .likedLink {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #1f8bff;
+  color: var(--text-color);
+  border-color: var(--text-color);
   border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 14px;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.likedLink:hover {
-  background-color: white;
-  color: #007bff;
 }
