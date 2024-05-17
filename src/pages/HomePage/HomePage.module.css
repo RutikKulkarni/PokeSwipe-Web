@@ -6,10 +6,23 @@
   }
   
   .card {
-    padding: 20px;
+    /* padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    text-align: center;
+    text-align: center; */
+
+    /* width: 330px;
+  height: 400px; */
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: var(--card-background-color);
+  border-color: #454545;
   }
   
   .startButton {

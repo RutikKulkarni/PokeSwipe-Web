@@ -4,7 +4,7 @@ import styles from './LikedPokemons.module.css';
 const LikedPokemons = ({ likedPokemons }) => {
   return (
     <div className={styles.likedPokemons}>
-      <h2 className={styles.title}>Pokémon you have liked ❤️</h2>
+      <h1 className={styles.title}>Pokémon you have liked ❤️</h1>
       <div className={styles.pokemonGrid}>
         {likedPokemons.map((pokemon, index) => (
           <div key={index} className={styles.pokemonCard}>

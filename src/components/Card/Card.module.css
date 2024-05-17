@@ -1,4 +1,10 @@
-.container {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +16,13 @@
   height: 400px;
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #595959;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: var(--card-background-color);
 }
 
 .imageContainer {
@@ -34,14 +41,35 @@
 
 .name {
   margin-top: 40px;
+  margin-bottom: 0px;
 }
 
 .info {
   margin-top: 20px;
+  width: 100%;
 }
 
-.info p {
-  margin: 5px 0;
+.typesAbilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.type,
+.ability {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.type {
+  background-color: var(--type-background);
+  color: #000;
+}
+
+.ability {
+  background-color: var(--ability-background);
 }
 
 .buttons {
@@ -55,16 +83,55 @@
 .likeButton,
 .dislikeButton {
   padding: 10px 20px;
-  border: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .likeButton {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--button-background, #4CAF50);
+  color: var(--text-color, white);
+  border-color: var(--button-background, #4CAF50);
+}
+
+.likeButton:hover {
+  background-color: white;
+  color: var(--button-background, #4CAF50);
 }
 
 .dislikeButton {
-  background-color: #f44336;
+  background-color: var(--button-dislike-background-color, #f44336);
+  color: var(--text-color, white);
+  border-color: var(--button-dislike-background-color, #f44336);
+}
+
+.dislikeButton:hover {
+  background-color: white;
+  color: var(--button-dislike-background-color, #f44336);
+}
+
+.likedLinkContainer {
+  margin-top: 20px;
+}
+
+.likedLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.likedLink:hover {
+  background-color: white;
+  color: #007bff;
 }

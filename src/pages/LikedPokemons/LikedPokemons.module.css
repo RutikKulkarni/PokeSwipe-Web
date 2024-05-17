@@ -6,6 +6,7 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  font-size: 40px;
 }
 
 .pokemonGrid {
@@ -20,7 +21,7 @@
   height: 200px;
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #595959;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@
   justify-content: center; 
   text-align: center;
   position: relative;
+  background-color: var(--card-background-color);
 }
 
 .imageContainer {

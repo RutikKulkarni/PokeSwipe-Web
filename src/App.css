@@ -6,19 +6,29 @@ body {
 }
 
 :root {
-  --background-color: #fff;
+  --background-color: #cbc9c9;
   --text-color: #000;
-  --button-background: #4CAF50;
+  --button-background: #35e63b;
   --button-text: #fff;
-  --button-hover-background: #45a049;
+  --button-hover-background: #3b9b40;
+  --button-dislike-background-color: #e01f1f;
+  --card-background-color: #bab9b9;
+
+  --type-background: #faee7f;
+  --ability-background: #4baaf7;
 }
 
 body.dark-mode {
   --background-color: #333;
   --text-color: #fff;
-  --button-background: #333;
+  --button-background: #4CAF50;
   --button-text: #fff;
-  --button-hover-background: #555;
+  --button-hover-background: #45a049;
+  --button-dislike-background-color: #b71d1d;
+  --card-background-color: #282828;
+
+  --type-background: #d95116e0;
+  --ability-background: #19588b;
 }
 
 .app {
