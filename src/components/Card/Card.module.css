@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.card img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-left: 18%;
+}
+
+.name {
+  margin-top: 40px;
+}
+
+.info {
+  margin-top: 20px;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.likeButton,
+.dislikeButton {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.likeButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.dislikeButton {
+  background-color: #f44336;
+  color: white;
+}

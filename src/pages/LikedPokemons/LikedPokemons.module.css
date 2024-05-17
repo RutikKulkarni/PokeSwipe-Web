@@ -1,0 +1,44 @@
+.likedPokemons {
+  margin-top: 20px;
+}
+
+.title {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pokemonGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pokemonCard {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  text-align: center;
+  position: relative;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pokemonCard img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

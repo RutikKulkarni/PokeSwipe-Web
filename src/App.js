@@ -1,21 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
+import Card from './components/Card/Card';
+import LikedPokemons from './pages/LikedPokemons/LikedPokemons';
 import './App.css';
 
 function App() {
+  const [likedPokemons, setLikedPokemons] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
+  const addLikedPokemon = (pokemon) => {
+    setLikedPokemons([...likedPokemons, pokemon]);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/swipe" element={<Card addLikedPokemon={addLikedPokemon} />} />
+          <Route path="/liked" element={<LikedPokemons likedPokemons={likedPokemons} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
