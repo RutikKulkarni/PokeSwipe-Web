@@ -8,7 +8,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 50vh;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.logo {
+  width: 200px;
 }
 
 .card {
@@ -23,6 +33,15 @@
   align-items: center;
   position: relative;
   background-color: var(--card-background-color);
+}
+
+.heartIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ce2db1;
 }
 
 .imageContainer {
@@ -93,29 +112,35 @@
 }
 
 .likeButton {
-  background-color: var(--button-background, #4CAF50);
-  color: var(--text-color, white);
-  border-color: var(--button-background, #4CAF50);
+  background-color: var(--button-background);
+  color: var(--text-color);
+  border-color: #414141;
+
+  font-family: "Comic Neue";
+  font-size: 16px;
 }
 
 .likeButton:hover {
   background-color: white;
-  color: var(--button-background, #4CAF50);
+  color: var(--button-background);
+  border-color: #383838;
 }
 
 .dislikeButton {
-  background-color: var(--button-dislike-background-color, #f44336);
-  color: var(--text-color, white);
-  border-color: var(--button-dislike-background-color, #f44336);
+  background-color: var(--button-dislike-background-color);
+  color: var(--text-color);
+
+  font-family: "Comic Neue";
+  font-size: 16px;
 }
 
 .dislikeButton:hover {
   background-color: white;
-  color: var(--button-dislike-background-color, #f44336);
+  color: var(--button-dislike-background-color);
 }
 
 .likedLinkContainer {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .likedLink {

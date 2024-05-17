@@ -1,35 +1,66 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-  }
-  
-  .card {
-    /* padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center; */
-
-    /* width: 330px;
-  height: 400px; */
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 50vh;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.card {
   position: relative;
+  width: 300px;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 15px;
   background-color: var(--card-background-color);
-  border-color: #454545;
-  }
-  
-  .startButton {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+  border: 1px solid #595959;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.card h2 {
+  margin-top: 80px;
+  font-size: 1.5em;
+  color: var(--text-color);
+}
+
+.card p {
+  color: var(--text-color);
+}
+
+.startButton {
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  background-color: var(--button-background);
+  color: var(--text-color);
+  border-color: #414141;
+
+  font-family: "Comic Neue";
+  font-size: 16px;
+}
+
+.startButton:hover {
+  background-color: var(--button-hover-background);
+}

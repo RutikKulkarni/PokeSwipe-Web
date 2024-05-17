@@ -1,14 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { CiLight, CiDark } from 'react-icons/ci';
-import styles from './Header.module.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { CiLight, CiDark } from "react-icons/ci";
+import styles from "./Header.module.css";
 
 const Header = ({ toggleDarkMode, darkMode }) => {
   return (
     <header className={styles.header}>
-      <h1>PokéSwipe</h1>
+      <Link to="/">
+        <h1>PokéSwipe</h1>
+      </Link>
       <nav>
-        <Link to="/"><strong>Home</strong></Link>
+        <Link to="/">
+          <strong>Home</strong>
+        </Link>
         {darkMode ? (
           <CiLight className={styles.icon} onClick={toggleDarkMode} />
         ) : (

@@ -1,20 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header';
-import HomePage from './pages/HomePage/HomePage';
-import Card from './components/Card/Card';
-import LikedPokemons from './pages/LikedPokemons/LikedPokemons';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
+import Card from "./components/Card/Card";
+import LikedPokemons from "./pages/LikedPokemons/LikedPokemons";
+import "./App.css";
 
 function App() {
   const [likedPokemons, setLikedPokemons] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-mode');
+    const prefersDarkScheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setDarkMode(prefersDarkScheme);
+
+    if (prefersDarkScheme) {
+      document.body.classList.add("dark-mode");
     } else {
-      document.body.classList.remove('dark-mode');
+      document.body.classList.remove("dark-mode");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
 
@@ -32,8 +45,14 @@ function App() {
         <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/swipe" element={<Card addLikedPokemon={addLikedPokemon} />} />
-          <Route path="/liked" element={<LikedPokemons likedPokemons={likedPokemons} />} />
+          <Route
+            path="/swipe"
+            element={<Card addLikedPokemon={addLikedPokemon} />}
+          />
+          <Route
+            path="/liked"
+            element={<LikedPokemons likedPokemons={likedPokemons} />}
+          />
         </Routes>
       </Router>
     </div>

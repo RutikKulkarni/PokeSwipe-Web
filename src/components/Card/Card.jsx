@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { CiHeart } from "react-icons/ci";
+// import heartIcon from "../../assets/heart-icon.png";
+import logo from "../../assets/logo.png";
 import styles from "./Card.module.css";
 
 const Card = ({ addLikedPokemon }) => {
@@ -53,6 +56,9 @@ const Card = ({ addLikedPokemon }) => {
 
   return (
     <div className={styles.wrapper}>
+      <div className={styles.logoContainer}>
+        <img src={logo} alt="Logo" className={styles.logo} />
+      </div>
       {loading ? (
         <div className={styles.cardContainer}>
           <h2>Loading...</h2>
@@ -60,6 +66,8 @@ const Card = ({ addLikedPokemon }) => {
       ) : (
         <div className={styles.cardContainer}>
           <div className={styles.card}>
+            <CiHeart className={styles.heartIcon} />
+            {/* <img src={heartIcon} className={styles.heartIcon}/> */}
             <div className={styles.imageContainer}>
               <img src={pokemon.image} alt={pokemon.name} />
             </div>
