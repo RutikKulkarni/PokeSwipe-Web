@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CiHeart } from "react-icons/ci";
 import logo from "../../assets/logo.png";
 import styles from "./Card.module.css";
 import { fetchRandomPokemon } from "../../utility/Api.js";
+import SwipableCard from "./SwipableCard";
 
 const Card = ({ addLikedPokemon, fromLikedPage }) => {
   const [pokemon, setPokemon] = useState(null);
@@ -57,37 +57,11 @@ const Card = ({ addLikedPokemon, fromLikedPage }) => {
           <h2>Loading...</h2>
         </div>
       ) : (
-        <div className={styles.cardContainer}>
-          <div className={styles.card}>
-            <CiHeart className={styles.heartIcon} onClick={handleLike} />
-            <div className={styles.imageContainer}>
-              <img src={pokemon.image} alt={pokemon.name} />
-            </div>
-            <h2 className={styles.name}>{pokemon.name}</h2>
-            <div className={styles.info}>
-              <div className={styles.typesAbilities}>
-                {pokemon.types.map((type, index) => (
-                  <span key={index} className={styles.type}>
-                    {type}
-                  </span>
-                ))}
-                {pokemon.abilities.map((ability, index) => (
-                  <span key={index} className={styles.ability}>
-                    {ability}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className={styles.buttons}>
-              <button className={styles.dislikeButton} onClick={handleDislike}>
-                Dislike
-              </button>
-              <button className={styles.likeButton} onClick={handleLike}>
-                Like
-              </button>
-            </div>
-          </div>
-        </div>
+        <SwipableCard
+          pokemon={pokemon}
+          handleLike={handleLike}
+          handleDislike={handleDislike}
+        />
       )}
       {showLikedLink && (
         <div className={styles.likedLinkContainer}>
