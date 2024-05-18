@@ -30,7 +30,7 @@ const Card = ({ addLikedPokemon, fromLikedPage }) => {
       setShownPokemonIds([...shownPokemonIds, pokemonData.id]);
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
-    setPokemon(null);
+      setPokemon(null);
     } finally {
       setLoading(false);
     }
