@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { CiHeart } from "react-icons/ci";
 import logo from "../../assets/logo.png";
 import styles from "./Card.module.css";
+import { fetchRandomPokemon } from "../../utility/Api.js";
 
 const Card = ({ addLikedPokemon, fromLikedPage }) => {
   const [pokemon, setPokemon] = useState(null);
@@ -13,7 +13,7 @@ const Card = ({ addLikedPokemon, fromLikedPage }) => {
   const [showLikedLink, setShowLikedLink] = useState(false);
 
   useEffect(() => {
-    fetchRandomPokemon();
+    fetchRandomPokemonData();
   }, []);
 
   useEffect(() => {
@@ -22,29 +22,15 @@ const Card = ({ addLikedPokemon, fromLikedPage }) => {
     }
   }, [fromLikedPage]);
 
-  const fetchRandomPokemon = async () => {
+  const fetchRandomPokemonData = async () => {
     setLoading(true);
     try {
-      let id;
-      do {
-        id = Math.floor(Math.random() * 898) + 1;
-      } while (shownPokemonIds.includes(id));
-
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${id}`
-      );
-      const data = response.data;
-      const pokemonData = {
-        id: data.id,
-        name: data.name,
-        abilities: data.abilities.map((ability) => ability.ability.name),
-        types: data.types.map((type) => type.type.name),
-        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
-      };
+      const pokemonData = await fetchRandomPokemon(shownPokemonIds);
       setPokemon(pokemonData);
-      setShownPokemonIds([...shownPokemonIds, id]);
+      setShownPokemonIds([...shownPokemonIds, pokemonData.id]);
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
+    setPokemon(null);
     } finally {
       setLoading(false);
     }
@@ -54,11 +40,11 @@ const Card = ({ addLikedPokemon, fromLikedPage }) => {
     addLikedPokemon(pokemon);
     setLikedCount(likedCount + 1);
     setShowLikedLink(true);
-    fetchRandomPokemon();
+    fetchRandomPokemonData();
   };
 
   const handleDislike = () => {
-    fetchRandomPokemon();
+    fetchRandomPokemonData();
   };
 
   return (
