@@ -1,6 +1,6 @@
 # PokéSwipe - Gotta Catch Your Love
 
-Welcome to PokéSwipe, where Pokémon trainers meet their perfect companions! PokéSwipe combines the excitement of Pokémon encounters with the addictive swiping mechanic of popular dating apps. Explore the Pokémon world, swipe through creatures, and build your dream team with ease.
+Welcome to PokéSwipe, where Pokémon trainers meet their perfect companions! PokéSwipe combines the excitement of Pokémon encounters with the addictive swiping mechanic. Explore the Pokémon world, swipe through creatures, and build your dream team with ease.
 
 ## Objective
 
@@ -20,6 +20,13 @@ PokéSwipe aims to provide users with an engaging and intuitive platform to disc
 3. Start the development server: `npm start`
 4. Explore and enjoy the world of PokéSwipe!
 
+## Project Structure
+
+- **`src/components`**: Contains reusable components such as card, and header.
+- **`src/pages`**: The main pages of the application, including the home page, swipe page, and liked Pokémon page.
+- **`src/assets`**: Stores images, logos, and other static assets used in the application.
+- **`src/utils`**: Contains utility functions and helper modules used throughout the project.
+
 ## Usage
 
 1. **Welcome to PokéSwipe**: Start your PokéSwipe journey with the engaging welcome screen. Click the "Start" button to begin the Pokémon encounters.
@@ -36,5 +43,18 @@ PokéSwipe aims to provide users with an engaging and intuitive platform to disc
 - **Deployment**: Deploy PokéSwipe to a public URL using platforms like Vercel, Netlify, or GitHub Pages for widespread access.
 - **Documentation**: Maintain clear and organized code documentation to facilitate understanding and collaboration.
 - **Out-of-the-Box Thinking**: Introduce unique features, design elements, or creative twists to make PokéSwipe stand out from the crowd.
+
+## Live Demo
+
+Experience PokéSwipe live: [PokéSwipe Live Demo](https://poke-swipe-web.vercel.app/)
+
+## API Integration
+
+PokéSwipe integrates with the following APIs to provide dynamic content:
+
+- **PokéAPI**: Used to fetch detailed information about various Pokémon including images, abilities, and types.
+  - API URL: `https://pokeapi.co/api/v2/`
+  - Documentation: [PokéAPI Documentation](https://pokeapi.co/docs/v2)
+
 
 Embrace the Pokémon adventure with PokéSwipe and catch 'em all in style! Happy swiping! 🌟🔥
