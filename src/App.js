@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import Card from "./components/Card/Card";
 import LikedPokemons from "./pages/LikedPokemons/LikedPokemons";
+import { initializeDarkMode, applyDarkMode } from "./utility/Themes";
 import "./App.css";
 
 function App() {
@@ -12,24 +13,11 @@ function App() {
   const [fromLikedPage, setFromLikedPage] = useState(false);
 
   useEffect(() => {
-    const prefersDarkScheme = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    setDarkMode(prefersDarkScheme);
-
-    if (prefersDarkScheme) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    initializeDarkMode(setDarkMode);
   }, []);
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+    applyDarkMode(darkMode);
   }, [darkMode]);
 
   const addLikedPokemon = (pokemon) => {
